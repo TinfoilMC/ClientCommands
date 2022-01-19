@@ -17,16 +17,16 @@ public abstract class ClientCommandSourceMixin implements CottonClientCommandSou
 
     @Override
     public void sendFeedback(Text message) {
-        client.player.sendMessage(message, false);
+        client.player.addChatMessage(message, false);
     }
 
     @Override
     public void sendFeedback(Text message, boolean actionBar) {
-        client.player.sendMessage(message, actionBar);
+        client.player.addChatMessage(message, actionBar);
     }
 
     @Override
     public void sendError(Text text) {
-        client.player.sendMessage(new LiteralText("").append(text).formatted(Formatting.RED), false);
+        client.player.addChatMessage(new LiteralText("").append(text).formatted(Formatting.RED), false);
     }
 }

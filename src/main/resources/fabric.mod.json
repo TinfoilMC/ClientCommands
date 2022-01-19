@@ -1,18 +1,22 @@
 {
   "schemaVersion": 1,
   "id": "cotton-client-commands",
-  "name": "Cotton Client Commands",
-  "description": "An API for purely client-side commands.",
-  "version": "$version",
+  "name": "Tinfoiled Cotton Client Commands",
+  "description": "An API for purely client-side commands, cursed edition.",
+  "version": "@version@",
   "environment": "client",
   "license": "MIT",
   "contact": {
-    "homepage": "https://github.com/CottonMC/ClientCommands",
-    "sources": "https://github.com/CottonMC/ClientCommands",
-    "issues": "https://github.com/CottonMC/ClientCommands/issues"
+    "homepage": "https://github.com/TinfoilMC/ClientCommands",
+    "sources": "https://github.com/TinfoilMC/ClientCommands",
+    "issues": "https://github.com/TinfoilMC/ClientCommands/issues"
   },
   "depends": {
-    "fabricloader": ">=0.8.8"
+    "fabricloader": ">=0.8.8",
+    "minecraft": [
+      "1.14.x",
+      "1.15.x"
+    ]
   },
   "mixins": [
     "mixins.cotton-client-commands.json"

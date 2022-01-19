@@ -28,7 +28,7 @@ public abstract class PlayerMixin {
     public ClientPlayNetworkHandler networkHandler;
 
     @Shadow
-    public abstract void sendMessage(Text text_1, boolean boolean_1);
+    public abstract void addChatMessage(Text txt, boolean b);
 
     @Inject(method = "sendChatMessage", at = @At("HEAD"), cancellable = true)
     private void onChatMessage(String msg, CallbackInfo info) {
@@ -44,13 +44,13 @@ public abstract class PlayerMixin {
                 // Prevent sending the message
                 cancel = true;
         } catch (CommandException e) {
-            sendMessage(e.getTextMessage().copy().formatted(Formatting.RED), false);
+            addChatMessage(e.getTextMessage().copy().formatted(Formatting.RED), false);
             cancel = true;
         } catch (CommandSyntaxException e) {
-            sendMessage(new LiteralText(e.getMessage()).formatted(Formatting.RED), false);
+            addChatMessage(new LiteralText(e.getMessage()).formatted(Formatting.RED), false);
             cancel = true;
         } catch (Exception e) {
-            sendMessage(new TranslatableText("command.failed").formatted(Formatting.RED), false);
+            addChatMessage(new TranslatableText("command.failed").formatted(Formatting.RED), false);
             cancel = true;
         }
 
